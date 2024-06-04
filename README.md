@@ -8,7 +8,7 @@ Special repo for this task
 ## Lesson 3 step 6 - review task
 
 
-**Prerequesitions:**
+**Prerequisites::**
 You need python3 on you host (PATH also must be set up)
 
 _for linux_:
