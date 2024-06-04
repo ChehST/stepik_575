@@ -8,20 +8,10 @@ import time
 from selenium.webdriver.common.by import By
 
 link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
-
-languages = {
-    'es':'Añadir al carrito',
-    'fr':'Ajouter au panier',
-    'ru':'Добавить в корзину',
-    'de':'In Warenkorb legen',
-    'en-gb':'Add to basket'
-
-}
  
-def test_basket_button(browser):
+def test_basket_button_on_page(browser):
     browser.get(link)
-    # criteria 2
-    # time.sleep(30)
-    item = browser.find_elements(By.CSS_SELECTOR, ".btn-add-to-basket")
-    print(item)
-    assert item, "button 'Add to basket' is not found"
+    # criteria 2 need to visual checking the button text
+    time.sleep(30)
+    item = browser.find_element(By.CSS_SELECTOR, ".btn-add-to-basket")
+    assert item, f"button '{item.text}' is not found"

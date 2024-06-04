@@ -9,7 +9,7 @@ from selenium.webdriver.chrome.options import Options
 def pytest_addoption(parser):
     parser.addoption('--language', action='store', default=None,
                      help="Choose browser: chrome or firefox")
-    parser.addoption('--browser_name', action='store', default='chrome',
+    parser.addoption('--browser', action='store', default='chrome',
                      help="Choose browser: chrome or firefox")
     
 
@@ -18,7 +18,7 @@ def pytest_addoption(parser):
 def browser(request):
     from selenium.webdriver.common.by import By
 
-    browser_name = request.config.getoption("browser_name")
+    browser_name = request.config.getoption("browser")
     browser = None
 
     user_language = request.config.getoption("language")
@@ -30,9 +30,10 @@ def browser(request):
         browser = webdriver.Chrome(options=options)
     elif browser_name == "firefox":
         print("\nstart firefox browser for test..")
-        fp = webdriver.FirefoxProfile()
-        fp.set_preference("intl.accept_languages", user_language)
-        browser = webdriver.Firefox(firefox_profile=fp)
+        # Тест должен запускаться с параметром language следующей командой:
+        # pytest --language=es test_items.py
+        # и проходить успешно. Достаточно, чтобы код работал только для браузера Сhrome.
+        browser = webdriver.Firefox()
     else:
         raise pytest.UsageError("--browser_name should be chrome or firefox")
 
