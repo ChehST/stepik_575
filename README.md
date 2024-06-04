@@ -1,6 +1,6 @@
 
 # Stepik course 575
-[link to course]("https://stepik.org/course/575/syllabus")
+[link to course](https://stepik.org/course/575/syllabus)
 
 ## Lesson 3 step 6 - review task
 
